@@ -1,15 +1,40 @@
-## 简介
-EXIF（Exchangeable Image File）是“可交换图像文件”的缩写，可记录数码照片的拍摄参数、缩略图及其他属性信息。目前支持大小在 20M 以内、长宽小于 9999 像素的图片处理。
+## 功能概述
+EXIF（Exchangeable Image File）全称为可交换图像文件，可记录数码照片的拍摄参数、缩略图及其他属性信息。腾讯云数据万象通过 **exif** 接口获取 EXIF 信息。处理图片原图大小不超过32MB、宽高不超过30000像素且总像素不超过1亿像素，处理结果图宽高设置不超过9999像素；针对动图，原图宽 x 高 x 帧数不超过1亿像素。
+
+
+>! 如图片无 exif 信息，将返回`{"error" : "no exif data"}`。
+>
+
 ## 接口形式
+
+```
 download_url?exif
+```
+
 ## 参数说明
-| 参数                                      | 含义                                       |
-| --------------------------------------- | ---------------------------------------- |
-|download_url                            |文件的访问链接，具体构成为<bucket id>-<appid>.<picture region>.<domain>.com/<picture name>，如examples-1251000004.picsh.myqcloud.com/sample.jpeg|
+
+**操作名称**：exif
+
+| 参数         | 含义                                                         |
+| ------------ | ------------------------------------------------------------ |
+| download_url | 文件的访问链接，具体构成为`<BucketName-APPID>.cos.<picture region>.<domain>.com/<picture name>`，<br>例如`examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/picture.jpeg`。 |
+| /ignore-error/1            | 当处理参数中携带此参数时，针对文件过大导致处理失败的场景，会直接返回原图而不报错。         |
+
 
 ## 示例
+#### 请求示例1：公有读
+```
+http://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?exif
+```
+
+#### 请求示例2：私有读、携带签名
+
+获取方式同上，仅增加签名部分，并与获取参数以“&”连接，示例如下：
 
 ```
-http://examples-1251000004.picsh.myqcloud.com/sample.jpeg?exif
-
+http://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?q-sign-algorithm=<signature>&exif
 ```
+
+ >? `<signature>` 为签名部分，获取方式请参考 [请求签名](https://cloud.tencent.com/document/product/436/7778)。
+ >
+

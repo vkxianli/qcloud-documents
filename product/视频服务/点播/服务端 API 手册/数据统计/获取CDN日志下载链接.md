@@ -42,7 +42,8 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | data.domesticLogList | Array   | 国内 CDN 节点产生的 CDN 日志下载链接列表，字段信息请参见 [LogInfo](#p1)。                                           |
 | data.overseaLogList  | Array   | 海外 CDN 节点产生的 CDN 日志下载链接列表，字段信息请参见 [LogInfo](#p1)，如果域名没有开通海外加速，则不会返回该数据。 |
 
-#### <span id = "p1"></span>LogInfo 日志下载链接信息
+#### [](id:p1)LogInfo 日志下载链接信息
+
 | 参数名称 | 类型   | 说明                                                                                     |
 | -------- | ------ | ---------------------------------------------------------------------------------------- |
 | date     | String | 日志所属日期，格式为：yyyy-MM-dd，如2018-03-01。                                         |
@@ -76,7 +77,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 }
 ```
 
-## <span id="logfile">日志说明</span>
+## [](id:logfile)日志说明
 日志文件的压缩格式为 GZIP，日志文件里面每条日志内容的各个字段以空格隔开，字段顺序（从左到右）及含义如下表所示：
 
 | 字段顺序 | 字段内容                                    |
@@ -97,7 +98,8 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | 14       | HTTP 协议标识。                                |
 | 15       | 缓存 HIT/MISS。                               |
 
-#### <span id="provdef">省份编号映射</span>
+#### 省份编号映射[](id:provdef)
+
 | 编号 | 省份   |
 | ---- | ------ |
 | 22   | 北京   |
@@ -135,7 +137,8 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | 1    | 港澳台 |
 | -1   | 海外   |
 
-#### <span id="ispdef">运营商编号映射 </span>
+#### 运营商编号映射 [](id:ispdef)
+
 | 编号 | 运营商     |
 | ---- | ---------- |
 | 2    | 中国电信   |
@@ -147,10 +150,10 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | -1   | 海外运营商 |
 | 0    | 其他运营商 |
 
-#### 海外地区编号映射
+#### 海外及中国港澳台地区编号映射
 海外 CDN 节点日志文件中的省份编号字段表示海外地区编号。
 
-| 编号 | 海外地区     |
+| 编号 | 海外及中国港澳台地区     |
 | ---- | ------------ |
 | 73   | 印度         |
 | 1195 | 印度尼西亚   |
@@ -159,10 +162,10 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | 144  | 越南         |
 | 3701 | 马来西亚     |
 | 2588 | 菲律宾       |
-| 2026 | 台湾         |
+| 2026 | 中国台湾         |
 | 1044 | 日本         |
 | 3379 | 韩国         |
-| 1200 | 香港         |
+| 1200 | 中国香港         |
 | 3839 | 加拿大       |
 | 669  | 美国         |
 | -2   | 海外其他地区 |
@@ -172,3 +175,9 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | 编号 | 海外地区   |
 | ---- | ---------- |
 | -1   | 海外运营商 |
+
+
+
+
+
+
